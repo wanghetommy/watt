@@ -1,9 +1,9 @@
 /**
- * Created with IntelliJ IDEA.
+ * A simple samples show multi Presenter receive the Text from input
+ *
  * User: taylor
  * Date: 13-12-27
  * Time: 下午6:05
- * To change this template use File | Settings | File Templates.
  */
 $(function () {
 
