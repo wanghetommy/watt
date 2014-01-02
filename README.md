@@ -1,4 +1,4 @@
 watt
 ====
 
-a smart bmvp framework for you SPA
+A smart bmvp(bus-mvp) framework for your SPA
