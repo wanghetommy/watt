@@ -1,0 +1,15 @@
+.mymetadata
+.settings
+target
+init.properties
+.classpath
+.project
+.idea
+*.vpp~*
+*.iml
+.DS_Store
+logs
+lib
+classes
+.log
+node_modules
