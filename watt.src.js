@@ -1,6 +1,6 @@
 /**
 * watt Library v0.9.0 https://github.com/wanghetommy/watt/
-* @date 2014-01-02 11:20
+* @date 2014-01-24 06:11
 * @author taylor wong
 * @Copyright 2013 wanghetommy@gmail.com Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -272,20 +272,18 @@ watt.ns('mvp',function(watt){
             cb = attr;
         }
 
-        //TODO 判断attr是否为cb？
-        //attr为此Presenter的成员属性
-
-
         if(typeof cb != "function"){
             throw new Error("Handler is required in Presenter");
         }
 
-        watt.apply(this,watt.apply({
+        var _ = this;
+
+        watt.apply(_,watt.apply({
             once:false
         }, attr));
-        var _ = this;
-        watt[this.once?'one':'on'](ns,name,function (view,model) {
-            cb.call(_,view,model);
+
+        watt[this.once?'one':'on'](ns,name,function () {
+            cb.apply(_,arguments);
         },this);
 
     }
@@ -302,6 +300,15 @@ watt.ns('mvp',function(watt){
 
 
     watt.ns({
+        /**
+         *
+         * @param ns
+         * @param name
+         * @param attr member variable
+         * @param cb   call back func
+         * @return {watt['mvp'].Presenter}
+         * @constructor
+         */
         Presenter : function(ns,name,attr,cb) {
             return new watt['mvp'].Presenter(ns,name,attr,cb);
         }
